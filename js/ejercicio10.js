@@ -1,7 +1,10 @@
-let num1 = parseInt(prompt("Ingrese un número"))
+let f = parseInt(prompt('Escriba el número de filas'))
+let c = parseInt(prompt('Escriba el número de columnas'))
+let sumador = 0
 
-if(num1 % 2 == 0 || num1 % 3 == 0 || num1 % 5 == 0 || num1 % 7 == 0 ){
-  document.write(`El número ${num1} <br> es divisible por estos números`)
-}else {
-  document.write(`El número ${num1} <br> NO es divisible por estos números`)
+for ( i = f ; i>= 1; i --){
+  for(j= c ; j >= 1 ; j--){
+    document.write(`<td> ${i*j} </td>`)
+  }
+  document.write('<br>')
 }

@@ -1,23 +1,22 @@
-let num1 = parseInt(prompt("Ingresa un número:"));
-let divisible = [];
+let nombres = [];
+let edades = [];
 
-switch (true) {
-  case num1 % 2 === 0:
-    divisible.push(2);
-    break;
-  case num1 % 3 === 0:
-    divisible.push(3);
-    break;
-  case num1 % 5 === 0:
-    divisible.push(5);
-    break;
-  case num1 % 7 === 0:
-    divisible.push(7);
-    break;
+for (let i = 1; i <= 3; i++) {
+  let nombre = prompt(`Ingrese el nombre ${i}:`);
+  let edad = parseInt(prompt(`Ingrese la edad de ${nombre}:`));
+
+  if (isNaN(edad)) {
+    alert("Edad no válida. Ingrese un número válido.");
+    i--; 
+  } else {
+    nombres.push(nombre);
+    edades.push(edad);
+  }
 }
 
-if (divisible.length === 0) {
-  document.write(`El ${num1} no es divisible por ninguno de los números (2, 3, 5, 7)`);
-} else {
-  document.write(`El ${num1} es divisible por: ${divisible.join(", ")}`);
-}
+const mayorEdad = Math.max(...edades); 
+
+const indiceMayor = edades.indexOf(mayorEdad); 
+const nombreMayor = nombres[indiceMayor]; 
+
+alert(`El nombre del mayor es: ${nombreMayor}`);
