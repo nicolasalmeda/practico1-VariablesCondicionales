@@ -16,6 +16,18 @@ switch (true) {
     break;
 }
 
+// if(num1 % 2 === 0){
+//   divisible.push(2);
+// }else if(num1 % 3 === 0){
+//   divisible.push(3);
+// }else if(num1 % 5 === 0){
+//   divisible.push(5);
+// }else if(num1 % 7 === 0){
+//   divisible.push(7);
+// }else{
+//   divisible = []
+// }
+
 if (divisible.length === 0) {
   document.write(`El ${num1} no es divisible por ninguno de los números (2, 3, 5, 7)`);
 } else {
