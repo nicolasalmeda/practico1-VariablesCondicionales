@@ -1,29 +1,32 @@
-let nota = parseInt(prompt("Ingrese la nota"))
+let ciudad = ''
+let ciudades = []
+let text = ''
 let bandera = 1
 
-while(bandera === 1){
-  if(nota >= 0 && nota <= 10){
-    if(nota >= 0 && nota < 3){
-      alert('Muy deficiente')
-      bandera = 0
-    }else if(nota >= 3 && nota < 5){
-      alert('Insuficiente')
-      bandera = 0
-    }else if(nota >= 5 && nota < 7){
-      alert('Suficiente')
-      bandera = 0
-    }else if(nota === 7){
-      alert('Bien')
-      bandera = 0
-    }else if(nota >= 8 && nota<10){
-      alert('Notable')
-      bandera = 0
-    }else if(nota === 10){
-      alert('Sobresaliente')
-      bandera = 0
+
+do{
+  ciudad = prompt('Ingrese una ciudad')
+  ciudades.push(ciudad)
+  text = 'Presione OK para seguir ingresando palrabas o Cancelar para terminar'
+  if(confirm(text) == true){
+    bandera = 1
+  }else {
+    document.write(`La longitud es: ${ciudades.length} <br>`)
+    if(ciudades.length>2){
+      document.write(`Primera posicion:${ciudades[0]}<br> Segunda posicion:${ciudades[1]} <br> Tercera posicion:${ciudades[ciudades.length]} <br>`)
+    }else{
+      document.write(`Primera posicion:${ciudades[0]}<br> Segunda posicion:${ciudades[1]} <br> No tiene más longitud el array`)
+    } 
+    ciudades.push('Paris')
+    document.write('<br>Ciudades con Paris al final ' + ciudades.join('-') + '<br>')
+    
+    if(ciudades.length > 0){
+      document.write('La ciudad que ocupa la segunda posicion es ' + ciudades[1] + '<br>')
+    }else{
+      document.write('<br>La cadena no tiene segunda posicion')
     }
-  }else{
-    alert("Nota no valida ingrese nuvamente")
-    nota = parseInt(prompt("Ingrese una nota válida"))
+    ciudades[1] = 'Barcelona'
+    document.write(' <br>La ciudad que ocupa la nueva segunda posicion es ' + ciudades[1])
+    bandera = 0
   }
-}
+} while(bandera == 1)

@@ -1,30 +1,17 @@
-let numero = 0
-let valor = ''
-let text = ''
-let bandera = 1
-let sumador = 0
+let mayu = 'MAYU'
+let minu = 'asdfg'
+let dois = 'AbDxDf'
 
-
-do{
-  numero = parseInt(prompt('Ingrese un número'))
-  if (typeof numero === 'number' && Number.isInteger(numero)){
-    if(numero > 0 && numero <= 99999999 ){
-      let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-      let resto = numero % 23;
-      valor = letras.charAt(resto);
-      alert(`La letra es: ${valor}`)
-    }else {
-      alert('No se ingreso un numero válido')
-    }
+const tipoDeOracion = (valor) => {
+  if (valor === valor.toLowerCase()){
+    return document.write('La oracion esta en minúscula' + '<br>')
+  }else if(valor === valor.toUpperCase()){
+    return document.write('La oracion esta en mayúscula' + '<br>')
   }else{
-    alert('No se ingreso un numero')
+    return document.write('La oracion esta en mayúscula y mnúscula' + '<br>')
   }
+}
 
-  
-  text = 'Presione OK para seguir ingresando numeros o Cancelar para terminar'
-  if(confirm(text) == true){
-    bandera = 1
-  }else {
-    bandera = 0
-  }
-} while(bandera == 1)
+tipoDeOracion(mayu)
+tipoDeOracion(minu)
+tipoDeOracion(dois)

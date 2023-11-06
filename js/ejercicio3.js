@@ -1,17 +1,20 @@
-let cadena = ''
-let cadenas = []
-let text = ''
-let bandera = 1
+function lanzarDados() {
+  return Math.floor(Math.random() * 6) + 1;
+  
+}
 
+const resultados = new Array(11).fill(0);
+console.log(Math.random())
+for (let i = 0; i < 50; i++) {
+  const dado1 = lanzarDados();
+  const dado2 = lanzarDados();
+  const suma = dado1 + dado2;
 
-do{
-  cadena = prompt('Ingrese una palabra')
-  cadenas.push(cadena)
-  text = 'Presione OK para seguir ingresando palrabas o Cancelar para terminar'
-  if(confirm(text) == true){
-    bandera = 1
-  }else {
-    document.write(cadenas.join('-'))
-    bandera = 0
-  }
-} while(bandera == 1)
+  resultados[suma - 2]++; 
+}
+
+document.write("Número de apariciones de cada suma:");
+
+for (let i = 2; i <= 12; i++) {
+  document.write(`<br>Suma ${i}: ${resultados[i - 2]}`);
+}
