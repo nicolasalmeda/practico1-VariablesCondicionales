@@ -7,17 +7,49 @@
   <meta name="author" content="Nicolas Lagoria">
   <meta name="description" content="Trabajo practico numero 1 practicas con variables">
   <meta name="keywords" content="javascript, trabajo practico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <title>Practico 2</title>
 </head>
 
 <body>
+
+  <section class="container-fluid d-flex flex-column text-center">
+    <h2 class="p-3">Inventario</h2>
+    <div class=" container d-flex justify-content-around">
+      <button id="agregarButton" onclick="agregarProductos()">Agregar Producto</button>
+      <button id="verButton" onclick="verProductos()">Ver Productos</button>
+      <button id="eliminarButton" onclick="sinStock()">Eliminar Productos sin Stock</button>
+      <button id="verTotal" onclick="valorTotal()">Ver total del inventario</button>
+    </div>
+    <div class="container m-3" id="productos">
+    </div>
+  </section>
+
+  <section class="container-fluid d-flex flex-column text-center">
+    <h2 class="p-3">Estudiantes</h2>
+    <div class=" container d-flex justify-content-around">
+      <button id="promedio" onclick="promedio()">Promedio</button>
+      <button id="aprobados" onclick="mostrarAprobados()">Aprobados y desaprobados</button>
+    </div>
+    <div class="container m-3" id="notas">
+    </div>
+  </section>
+  <section>
+    <div id="container">
+      <h2>Gestión de Proyectos</h2>
+      <button onclick="verProyectos()">Ver Proyectos</button>
+      <button onclick="agregarProyecto()">Agregar Proyecto</button>
+      <button onclick="cambiarEstadoProyecto()">Cambiar Estado</button>
+      <button onclick="asignarResponsable()">Asignar Responsable</button>
+      <button onclick="resumenProyectosEnCurso()">Mostrar Resumen</button>
+    </div>
+    <div id="proyectos"></div>
+  </section>
   <!-- <script src="./js/ejercicio1.js"></script> -->
   <!-- <script src="./js/ejercicio2.js"></script> -->
   <!-- <script src="./js/ejercicio3.js"></script> -->
-  <!-- <script src="./js/ejercicio4.js"></script> -->
-  <!-- <script src="./js/ejercicio5.js"></script> -->
-  <!-- <script src="./js/ejercicio6.js"></script> -->
-  <script src="./js/ejercicio7.js"></script>
+  <script src="./js/ejercicio4.js"></script>
 </body>
 
 </html>

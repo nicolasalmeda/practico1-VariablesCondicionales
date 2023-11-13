@@ -1,32 +1,38 @@
-let ciudad = ''
-let ciudades = []
-let text = ''
-let bandera = 1
+let estudiantes = ['Juan','Gbariel','Selena','Gilda']
+let notas = [6,5,8,9]
 
+const promedio = () => {
+  let promedio = 0
+  let sumador = 0
+notas.forEach(element => {
+    sumador += element
+  });
+  promedio = sumador / (notas.length + 1)
+  mostrarNotas(`El promedio es: ${promedio}`);
+}
 
-do{
-  ciudad = prompt('Ingrese una ciudad')
-  ciudades.push(ciudad)
-  text = 'Presione OK para seguir ingresando palrabas o Cancelar para terminar'
-  if(confirm(text) == true){
-    bandera = 1
-  }else {
-    document.write(`La longitud es: ${ciudades.length} <br>`)
-    if(ciudades.length>2){
-      document.write(`Primera posicion:${ciudades[0]}<br> Segunda posicion:${ciudades[1]} <br> Tercera posicion:${ciudades[ciudades.length]} <br>`)
-    }else{
-      document.write(`Primera posicion:${ciudades[0]}<br> Segunda posicion:${ciudades[1]} <br> No tiene más longitud el array`)
-    } 
-    ciudades.push('Paris')
-    document.write('<br>Ciudades con Paris al final ' + ciudades.join('-') + '<br>')
-    
-    if(ciudades.length > 0){
-      document.write('La ciudad que ocupa la segunda posicion es ' + ciudades[1] + '<br>')
-    }else{
-      document.write('<br>La cadena no tiene segunda posicion')
+const mostrarAprobados = () => {
+  const aprobados = [];
+  const reprobados = [];
+  
+  for (let i = 0; i < estudiantes.length; i++) {
+    if (notas[i] >= 6) {
+      aprobados.push(estudiantes[i]);
+    } else {
+      reprobados.push(estudiantes[i]);
     }
-    ciudades[1] = 'Barcelona'
-    document.write(' <br>La ciudad que ocupa la nueva segunda posicion es ' + ciudades[1])
-    bandera = 0
   }
-} while(bandera == 1)
+  
+  const resumen = `
+    Aprobados: ${aprobados.join(', ')}<br>
+    Reprobados: ${reprobados.join(', ')}
+  `;
+  
+  mostrarNotas(`${resumen}`);
+}
+
+
+const mostrarNotas = (contenido = '') => {
+  const productosDiv = document.getElementById("notas");
+  productosDiv.innerHTML = contenido;
+}
