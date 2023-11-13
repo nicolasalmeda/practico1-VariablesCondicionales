@@ -1,20 +1,38 @@
-function lanzarDados() {
-  return Math.floor(Math.random() * 6) + 1;
-  
+class Rectangulo {
+  constructor(alto, ancho) {
+    this.alto = alto;
+    this.ancho = ancho;
+  }
+
+  modificar(alto, ancho) {
+    this.alto = alto;
+    this.ancho = ancho;
+    console.log('Propiedades del rectángulo modificadas.');
+  }
+
+  mostrar() {
+    console.log(`Alto: ${this.alto}`);
+    console.log(`Ancho: ${this.ancho}`);
+  }
+
+  calcularPerimetro() {
+    return 2 * (this.alto + this.ancho);
+  }
+
+  calcularArea() {
+    return this.alto * this.ancho;
+  }
 }
 
-const resultados = new Array(11).fill(0);
-console.log(Math.random())
-for (let i = 0; i < 50; i++) {
-  const dado1 = lanzarDados();
-  const dado2 = lanzarDados();
-  const suma = dado1 + dado2;
+const miRectangulo = new Rectangulo(5, 10);
 
-  resultados[suma - 2]++; 
-}
+console.log('Propiedades iniciales del rectángulo:');
+miRectangulo.mostrar();
 
-document.write("Número de apariciones de cada suma:");
+miRectangulo.modificar(8, 12);
 
-for (let i = 2; i <= 12; i++) {
-  document.write(`<br>Suma ${i}: ${resultados[i - 2]}`);
-}
+console.log('Propiedades después de la modificación:');
+miRectangulo.mostrar();
+
+console.log('Perímetro:', miRectangulo.calcularPerimetro());
+console.log('Área:', miRectangulo.calcularArea());
