@@ -5,19 +5,19 @@ class Animal {
   }
 
   emitirSonido() {
-    console.log('whats thas the fox says?');
+  console.log('whats thas the fox says?');
   }
 }
 
 class Perro extends Animal {
   emitirSonido() {
-    console.log('woof woof soy de boca');
+  console.log('woof woof soy de boca');
   }
 }
 
 class Gato extends Animal {
   emitirSonido() {
-    console.log('Miau, Otro gato');
+  console.log('Miau, Otro gato');
   }
 }
 

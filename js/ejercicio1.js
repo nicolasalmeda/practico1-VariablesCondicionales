@@ -1,6 +1,5 @@
-// Definición de la clase Auto
 class Auto {
-  // Constructor para inicializar el objeto con las características iniciales
+  
   constructor(color, marca, modelo) {
     this.color = color;
     this.marca = marca;
@@ -24,7 +23,7 @@ class Auto {
     if (this.encendido) {
       this.encendido = false;
       console.log('El auto se apagó');
-       document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} se apagó`)
+      document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} se apagó`)
     } else {
       console.log('El auto ya está apagado');
       document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} ya está apagado`)
