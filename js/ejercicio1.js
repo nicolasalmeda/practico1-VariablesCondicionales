@@ -1,37 +1,47 @@
-class Auto {
-  
-  constructor(color, marca, modelo) {
-    this.color = color;
-    this.marca = marca;
-    this.modelo = modelo;
-    this.encendido = false;
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  const startButton = document.getElementById("startButton");
+  const gameContainer = document.getElementById("gameContainer");
+  const adivinadorInput = document.getElementById("adivinadorInput");
+  const submitAdivinador = document.getElementById("submitAdivinador");
 
-  encender() {
-    if (!this.encendido) {
-      this.encendido = true;
-      console.log('Auto encendido');
-      document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} se encendio <br>`)
+  let magicNumber;
+
+  startButton.addEventListener("click", function () {
+    magicNumber = generarNumeroAleatorio();
+    alert("Número mágico creado. Adivina el número!");
+    gameContainer.style.display = "block";
+    startButton.disabled = true;
+  });
+
+  submitAdivinador.addEventListener("click", function () {
+    
+    const userAdivinador = parseInt(adivinadorInput.value);
+    if (!isNaN(userAdivinador)) {
+      verificarAdivinanza(userAdivinador);
     } else {
-      console.log('El auto ya está encendido');
-      document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} ya está encendido <br>`)
+      alert("Ingresa un número válido.");
     }
+  });
+
+  function generarNumeroAleatorio() {
+    return Math.floor(Math.random() * 10) + 1;
   }
 
-
-  apagar() {
-    if (this.encendido) {
-      this.encendido = false;
-      console.log('El auto se apagó');
-      document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} se apagó`)
+  function verificarAdivinanza(adivinador) {
+    if (adivinador === magicNumber) {
+      alert("Felicidades! Adivinaste el número!");
+      reiniciarJuego();
+    } else if (adivinador < magicNumber) {
+      alert("El número es mayor. Sigue intentando.");
     } else {
-      console.log('El auto ya está apagado');
-      document.write(`El auto marca: ${this.marca}, modelo: ${this.modelo} ya está apagado`)
+      alert("El número es menor. Sigue intentando.");
     }
+    adivinadorInput.value = "";
   }
-}
 
-const miAuto = new Auto('Rojo', 'Toyota', 'Corolla');
-
-miAuto.encender();
-miAuto.apagar();
+  function reiniciarJuego() {
+    startButton.disabled = false;
+    gameContainer.style.display = "none";
+    magicNumber = null;
+  }
+});

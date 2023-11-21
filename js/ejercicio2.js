@@ -1,47 +1,75 @@
-class CuentaBancaria {
-  constructor(titular) {
-    this.titular = titular;
-    this.saldo = 0;
+class Persona {
+  constructor(nombre, edad, dni, sexo, peso, altura, anioNacimiento) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.dni = dni;
+    this.sexo = sexo;
+    this.peso = peso;
+    this.altura = altura;
+    this.anioNacimiento = anioNacimiento;
   }
 
-  ingresar(cantidad) {
-    if (cantidad > 0) {
-      this.saldo += cantidad;
-      console.log(`Se han ingresado ${cantidad} a la cuenta.`);
-      document.write(`<br>Se han ingresado ${cantidad} a la cuenta.`);
+  mostrarGeneracion() {
+    const anio = this.anioNacimiento;
+    if (anio >= 1994 && anio <= 2010) {
+      return "Generación Z: Irreverencia";
+    } else if (anio >= 1981 && anio <= 1993) {
+      return "Generación Y: Inicio de la digitalización, frustración";
+    } else if (anio >= 1969 && anio <= 1980) {
+      return "Generación X: Crisis del 73 y transición española, obsesión por el éxito";
+    } else if (anio >= 1949 && anio <= 1968) {
+      return "Baby Boom: Paz y explosión demográfica, ambición";
+    } else if (anio >= 1930 && anio <= 1948) {
+      return "Silent Generation: Niños de la postguerra, conflictos bélicos, austeridad";
     } else {
-      console.log('La cantidad a ingresar debe ser mayor que cero.');
-      document.write('La cantidad a ingresar debe ser mayor que cero.');
+      return "Generación no identificada";
     }
   }
 
-  extraer(cantidad) {
-    if (cantidad > 0 && cantidad <= this.saldo) {
-      this.saldo -= cantidad;
-      console.log(`Se han extraído ${cantidad} de la cuenta.`);
-      document.write(` <br>Se han extraído ${cantidad} de la cuenta.`);
-    } else {
-      console.log('La cantidad a extraer no es válida o excede el saldo disponible.');
-      document.write('La cantidad a extraer no es válida o excede el saldo disponible.');
-    }
+  esMayorDeEdad() {
+    return this.edad >= 18;
   }
 
-  informar() {
-    console.log(`Titular: ${this.titular}`);
-    document.write(`Titular: ${this.titular} <br>`);
-    console.log(`Saldo actual: ${this.saldo}`);
-    document.write(`<br> Saldo actual: ${this.saldo}`);
+  mostrarDatos() {
+    return `Nombre: ${this.nombre}\nEdad: ${this.edad}\nDNI: ${this.dni}\nSexo: ${this.sexo}\nPeso: ${this.peso}\nAltura: ${this.altura}\nAño de Nacimiento: ${this.anioNacimiento}`;
   }
 }
 
-const cuenta = new CuentaBancaria('Alex');
+function crearPersona() {
+  const nombre = document.getElementById("nombre").value;
+  const edad = parseInt(document.getElementById("edad").value);
+  const dni = document.getElementById("dni").value;
+  const sexo = document.getElementById("sexo").value;
+  const peso = parseFloat(document.getElementById("peso").value);
+  const altura = parseFloat(document.getElementById("altura").value);
+  const anioNacimiento = parseInt(document.getElementById("anioNacimiento").value);
 
-cuenta.informar();
+  const persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento);
+  alert(persona.mostrarDatos());
+}
 
-cuenta.ingresar(parseInt(prompt("Ingrese la cantidad que quiere ingresar")));
+function mostrarGeneracion() {
+  const nombre = document.getElementById("nombre").value;
+  const edad = parseInt(document.getElementById("edad").value);
+  const dni = document.getElementById("dni").value;
+  const sexo = document.getElementById("sexo").value;
+  const peso = parseFloat(document.getElementById("peso").value);
+  const altura = parseFloat(document.getElementById("altura").value);
+  const anioNacimiento = parseInt(document.getElementById("anioNacimiento").value);
 
-cuenta.informar();
+  const persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento);
+  alert(persona.mostrarGeneracion());
+}
 
-cuenta.extraer(parseInt(prompt("Ingrese la cantidad que quiere extraer")));
+function esMayorDeEdad() {
+  const nombre = document.getElementById("nombre").value;
+  const edad = parseInt(document.getElementById("edad").value);
+  const dni = document.getElementById("dni").value;
+  const sexo = document.getElementById("sexo").value;
+  const peso = parseFloat(document.getElementById("peso").value);
+  const altura = parseFloat(document.getElementById("altura").value);
+  const anioNacimiento = parseInt(document.getElementById("anioNacimiento").value);
 
-cuenta.informar();
+  const persona = new Persona(nombre, edad, dni, sexo, peso, altura, anioNacimiento);
+  alert(persona.esMayorDeEdad() ? `${nombre} es mayor de edad` : `${nombre} no es mayor de edad`);
+}
