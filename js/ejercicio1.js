@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   submitAdivinador.addEventListener("click", function () {
     
     const userAdivinador = parseInt(adivinadorInput.value);
-    if (isNaN(userAdivinador) || (userAdivinador < 11 && userAdivinador > 0)) {
+    if (isNaN(userAdivinador) || userAdivinador < 1 || userAdivinador > 10) {
       alert("Ingresa un número válido.");
     } else {
       
