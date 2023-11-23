@@ -1,3 +1,48 @@
 .container-numerosmagicos{
   display: none;
 }
+
+.reloj {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  background-color: #001f3f;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+#dateContainer, #timeContainer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#timeContainer {
+  font-size: 2em;
+}
+
+.timer{
+  height: 30vh;
+  background-color: #3a93ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}

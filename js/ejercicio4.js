@@ -1,29 +1,26 @@
-class Producto {
-  constructor(codigo, nombre, precio) {
-    this.codigo = codigo;
-    this.nombre = nombre;
-    this.precio = precio;
-  }
+function updateClock() {
+  const now = new Date();
 
-  imprimeDatos() {
-    console.log(`Código: ${this.codigo}`)
-    document.write(`Código: ${this.codigo} <br>`)
-    console.log(`Nombre: ${this.nombre}`)
-    document.write(`Nombre: ${this.nombre} <br>`)
-    console.log(`Precio: ${this.precio}`)
-    document.write(`Precio: ${this.precio} <br> `)
-  }
+  const daysOfWeek = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
+  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+  const dayOfWeek = daysOfWeek[now.getDay()];
+  const dayOfMonth = now.getDate();
+  const month = months[now.getMonth()];
+  const year = now.getFullYear();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  const timeString = `${hours % 12}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${ampm}`;
+
+  document.getElementById('dateContainer').innerText = `${dayOfWeek} ${dayOfMonth} DE ${month} DEL ${year}`;
+  document.getElementById('timeContainer').innerText = timeString;
 }
 
+// Actualizar cada segundo
+setInterval(updateClock, 1000);
 
-const producto1 = new Producto(1, 'Tijeras', 200);
-const producto2 = new Producto(2, 'Papel', 300);
-const producto3 = new Producto(3, 'Piedra', 2500);
-
-const productosArray = [producto1, producto2, producto3];
-
-document.write('Datos de los productos: <br>');
-for (const producto of productosArray) {
-  producto.imprimeDatos();
-  document.write('<br>---<br>');
-}
+// Llamar a la función para mostrar la hora actual
+updateClock();

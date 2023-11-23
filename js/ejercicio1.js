@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   startButton.addEventListener("click", function () {
     magicNumber = generarNumeroAleatorio();
-    alert("Número mágico creado. Adivina el número!");
+    alert("Número mágico creado. Adivina el número entre 1-10");
     gameContainer.style.display = "block";
     startButton.disabled = true;
   });
@@ -16,10 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
   submitAdivinador.addEventListener("click", function () {
     
     const userAdivinador = parseInt(adivinadorInput.value);
-    if (!isNaN(userAdivinador)) {
-      verificarAdivinanza(userAdivinador);
-    } else {
+    if (isNaN(userAdivinador) || userAdivinador < 11 || userAdivinador > 0) {
       alert("Ingresa un número válido.");
+    } else {
+      
+      verificarAdivinanza(userAdivinador);
     }
   });
 

@@ -1,38 +1,26 @@
-class Rectangulo {
-  constructor(alto, ancho) {
-    this.alto = alto;
-    this.ancho = ancho;
+  const tareaInput = document.getElementById('tareaInput');
+  const agregarBtn = document.getElementById('agregarBtn');
+  const listaTareas = document.getElementById('listaTareas');
+
+  agregarBtn.addEventListener('click', function () {
+    const nuevaTarea = tareaInput.value.trim();
+    if (nuevaTarea !== '') {
+      agregarTarea(nuevaTarea);
+      tareaInput.value = '';
+    }
+  });
+
+  function agregarTarea(tarea) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item d-flex justify-content-between align-items-center ';
+    li.innerHTML = `
+      ${tarea}
+      <button type="button" class="btn btn-danger btn-sm" onclick="eliminarTarea(this)">Eliminar</button>
+    `;
+    listaTareas.appendChild(li);
   }
 
-  modificar(alto, ancho) {
-    this.alto = alto;
-    this.ancho = ancho;
-    console.log('Propiedades del rectángulo modificadas.');
+  function eliminarTarea(btnEliminar) {
+    const tareaPadre = btnEliminar.parentNode;
+    listaTareas.removeChild(tareaPadre);
   }
-
-  mostrar() {
-    console.log(`Alto: ${this.alto}`);
-    console.log(`Ancho: ${this.ancho}`);
-  }
-
-  calcularPerimetro() {
-    return 2 * (this.alto + this.ancho);
-  }
-
-  calcularArea() {
-    return this.alto * this.ancho;
-  }
-}
-
-const miRectangulo = new Rectangulo(5, 10);
-
-console.log('Propiedades iniciales del rectángulo:');
-miRectangulo.mostrar();
-
-miRectangulo.modificar(8, 12);
-
-console.log('Propiedades después de la modificación:');
-miRectangulo.mostrar();
-
-console.log('Perímetro:', miRectangulo.calcularPerimetro());
-console.log('Área:', miRectangulo.calcularArea());

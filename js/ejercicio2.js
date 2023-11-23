@@ -36,6 +36,7 @@ class Persona {
 }
 
 function crearPersona() {
+
   const nombre = document.getElementById("nombre").value;
   const edad = parseInt(document.getElementById("edad").value);
   const dni = document.getElementById("dni").value;

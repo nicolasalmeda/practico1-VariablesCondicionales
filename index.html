@@ -14,75 +14,135 @@
 </head>
 
 <body>
-  <div class="container mt-5 d-flex justify-content-center flex-column">
-    <h2 class="text-center ">Adivina el Número</h2>
-    <div class="container-fluid d-flex justify-content-center mt-5">
-      <button id="startButton" class="btn btn-primary">Comenzar el Juego</button>
+  <section class="container-fluid">
+    <div class="container mt-5 d-flex justify-content-center flex-column">
+      <h2 class="text-start display-4 ">Ejercicio 1</h2>
+      <h2 class="text-center display-5 ">Adivina el Número</h2>
+      <div class="container-fluid d-flex justify-content-center mt-5">
+        <button id="startButton" class="btn btn-primary">Comenzar el Juego</button>
+      </div>
+
+      <div id="gameContainer" class="mt-3 container-numerosmagicos">
+        <label for="adivinadorInput">Ingresa un número:</label>
+        <input type="number" id="adivinadorInput" class="form-control">
+        <button id="submitAdivinador" class="btn btn-primary mt-2">Enviar</button>
+      </div>
+      <hr>
+    </div>
+  </section>
+
+  <section class="container ">
+    <h2 class="text-start display-4 ">Ejercicio 2</h2>
+    <h3 class="display-4 text-center">Taxonomía de Generaciones</h3>
+    <div class="container-fluid">
+      <h3 class="mt-5">Crear Persona</h3>
+      <form id="personaForm" class="mt-3 container">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input type="number" class="form-control" id="edad" required>
+        </div>
+        <div class="form-group">
+          <label for="dni">DNI:</label>
+          <input type="text" class="form-control" id="dni" required>
+        </div>
+        <div class="form-group">
+          <label for="sexo">Sexo:</label>
+          <select class="form-control" id="sexo" required>
+            <option value="H">Hombre</option>
+            <option value="M">Mujer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="peso">Peso:</label>
+          <input type="number" class="form-control" id="peso" required>
+        </div>
+        <div class="form-group">
+          <label for="altura">Altura:</label>
+          <input type="number" class="form-control" id="altura" required>
+        </div>
+        <div class="form-group">
+          <label for="anioNacimiento">Año de Nacimiento:</label>
+          <input type="number" class="form-control" id="anioNacimiento" required>
+        </div>
+        <button type="button" class="btn btn-primary mt-3" onclick="crearPersona()">Crear Persona</button>
+      </form>
+
+      <h3 class="mt-5">Operaciones</h3>
+      <button class="btn btn-success" onclick="mostrarGeneracion()">Mostrar Generación</button>
+      <button class="btn btn-info" onclick="esMayorDeEdad()">Es Mayor de Edad</button>
+      <hr>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="text-start display-4 ">Ejercicio 3</h2>
+    <h3 class="display-4 text-center">Listas de tareas</h3>
+    <div class="container mt-5 mb-3">
+      <div class="container-fluidd-flex justify-content-center">
+        <div class="col-md-6  ">
+          <div class="input-group mb-3">
+            <input type="text" id="tareaInput" class="form-control" placeholder="Ingrese una tarea"
+              aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" id="agregarBtn">Agregar Tarea</button>
+            </div>
+          </div>
+
+          <ul id="listaTareas" class="list-group">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="reloj">
+    <h2 class=" container text-start display-4">Ejercicio 4</h2>
+    <div id="dateContainer"></div>
+    <div id="timeContainer"></div>
+  </section>
+  <section class="timer ">
+    <h2 class=" container text-start display-4">Ejercicio 5</h2>
+    <div id="timer">00:00:00</div>
+    <div class="">
+      <button class="button" onclick="start()">Iniciar</button>
+      <button class="button" onclick="pause()">Pausar</button>
+      <button class="button" onclick="reset()">Resetear</button>
     </div>
 
-    <div id="gameContainer" class="mt-3 container-numerosmagicos">
-      <label for="adivinadorInput">Ingresa un número:</label>
-      <input type="number" id="adivinadorInput" class="form-control">
-      <button id="submitAdivinador" class="btn btn-primary mt-2">Enviar</button>
+  </section>
+
+  <section class="">
+    <h2 class=" container text-start display-4">Ejercicio 6</h2>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-3 d-flex flex-column">
+            <input type="number" id="tiempoInput" class="form-control w-50 mt-2 mb-3"
+              placeholder="Ingrese el tiempo en segundos" aria-describedby="button-addon2">
+            <div class="input-group-append ">
+              <div>
+                <button class="btn btn-primary" type="button" id="iniciarBtn">Iniciar</button>
+                <button class="btn btn-warning" type="button" id="pausarBtn">Pausar</button>
+                <button class="btn btn-danger" type="button" id="resetBtn">Reiniciar</button>
+              </div>
+
+            </div>
+          </div>
+          <h3 id="temporizador">00:00</h3>
+        </div>
+      </div>
     </div>
-    <hr>
-  </div>
-
-  <div class="container-fluid">
-    <h3 class="mt-5">Crear Persona</h3>
-    <form id="personaForm" class="mt-3 container">
-      <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" id="nombre" required>
-      </div>
-      <div class="form-group">
-        <label for="edad">Edad:</label>
-        <input type="number" class="form-control" id="edad" required>
-      </div>
-      <div class="form-group">
-        <label for="dni">DNI:</label>
-        <input type="text" class="form-control" id="dni" required>
-      </div>
-      <div class="form-group">
-        <label for="sexo">Sexo:</label>
-        <select class="form-control" id="sexo" required>
-          <option value="H">Hombre</option>
-          <option value="M">Mujer</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="peso">Peso:</label>
-        <input type="number" class="form-control" id="peso" required>
-      </div>
-      <div class="form-group">
-        <label for="altura">Altura:</label>
-        <input type="number" class="form-control" id="altura" required>
-      </div>
-      <div class="form-group">
-        <label for="anioNacimiento">Año de Nacimiento:</label>
-        <input type="number" class="form-control" id="anioNacimiento" required>
-      </div>
-      <button type="button" class="btn btn-primary" onclick="crearPersona()">Crear Persona</button>
-    </form>
-
-    <h3 class="mt-5">Operaciones</h3>
-    <button class="btn btn-success" onclick="mostrarGeneracion()">Mostrar Generación</button>
-    <button class="btn btn-info" onclick="esMayorDeEdad()">Es Mayor de Edad</button>
-    <hr>
-  </div>
+  </section>
 
   <script src="./js/ejercicio1.js"></script>
-  <!-- <script src="./js/ejercicio2.js"></script> -->
-  <!-- <script src="./js/ejercicio3.js"></script> -->
-  <!-- <script src="./js/ejercicio4.js"></script> -->
-  <!-- <script src="./js/ejercicio5.js"></script> -->
-  <!-- <script src="./js/ejercicio6.js"></script> -->
-  <!-- <script src="./js/ejercicio7.js"></script> -->
-  <!-- <script src="./js/ejercicio8.js"></script> -->
-  <!-- <script src="./js/ejercicio9.js"></script> -->
-  <!-- <script src="./js/ejercicio10.js"></script> -->
-  <!-- <script src="./js/ejercicioNotLit1.js"></script> -->
-  <!-- <script src="./js/ejercicioNotLit2.js"></script> -->
+  <script src="./js/ejercicio2.js"></script>
+  <script src="./js/ejercicio3.js"></script>
+  <script src="./js/ejercicio4.js"></script>
+  <script src="./js/ejercicio5.js"></script>
+  <script src="./js/ejercicio6.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
